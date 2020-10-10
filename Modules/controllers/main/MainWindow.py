@@ -1,8 +1,7 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
+from PyQt5.QtWidgets import QMainWindow
 from ...views import Ui_MainWindow
 from ...models import Person
-from ...models.model import Base, engine, Session
+from ...models.model import Session
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
