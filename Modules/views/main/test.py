@@ -14,18 +14,28 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(228, 261)
+        MainWindow.resize(231, 349)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.txtNombre = QtWidgets.QLineEdit(self.centralwidget)
-        self.txtNombre.setGeometry(QtCore.QRect(70, 50, 113, 24))
+        self.txtNombre.setGeometry(QtCore.QRect(10, 60, 113, 24))
         self.txtNombre.setObjectName("txtNombre")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(80, 110, 84, 24))
+        self.pushButton.setGeometry(QtCore.QRect(130, 60, 84, 24))
         self.pushButton.setObjectName("pushButton")
+        self.btnCuentas = QtWidgets.QPushButton(self.centralwidget)
+        self.btnCuentas.setGeometry(QtCore.QRect(60, 10, 101, 24))
+        self.btnCuentas.setObjectName("btnCuentas")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(10, 100, 201, 192))
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableWidget.setRowCount(1)
+        self.tableWidget.setColumnCount(1)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 228, 27))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 231, 27))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -38,7 +48,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton.setText(_translate("MainWindow", "Ingresar"))
+        self.btnCuentas.setText(_translate("MainWindow", "Abrir Cuentas"))
 
 
 if __name__ == "__main__":

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>228</width>
-    <height>261</height>
+    <width>231</width>
+    <height>349</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="txtNombre">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>50</y>
+      <x>10</x>
+      <y>60</y>
       <width>113</width>
       <height>24</height>
      </rect>
@@ -27,15 +27,52 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>110</y>
+      <x>130</x>
+      <y>60</y>
       <width>84</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Ingresar</string>
     </property>
+   </widget>
+   <widget class="QPushButton" name="btnCuentas">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Abrir Cuentas</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>201</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="rowCount">
+     <number>1</number>
+    </property>
+    <property name="columnCount">
+     <number>1</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>true</bool>
+    </attribute>
+    <row/>
+    <column/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -43,7 +80,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>228</width>
+     <width>231</width>
      <height>27</height>
     </rect>
    </property>

@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
-from .model import Base, engine
+from .model import Base, engine, Session
+from sqlalchemy import func
 
 
 class Person(Base):
@@ -11,8 +12,15 @@ class Person(Base):
     def __init__(self, name: str = ''):
         self.name = name
 
-    def __repr__(self):
-        return f'Person(id={self.id}, name={self.name})'
+    def Count(self):
+        session = Session()
+        count = session.query(func.count(Person.name)).scalar()
+        session.flush()
+        return count
+
+    def GetAll(self):
+        session = Session()
+        return session.query(Person).all()
 
 
 Base.metadata.create_all(engine)
