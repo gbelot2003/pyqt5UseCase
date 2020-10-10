@@ -9,21 +9,4 @@ class Person(Base):
     id = Column('id', Integer, primary_key=True)
     name = Column('name', String)
 
-    def SessionTest(self):
-
-        Base.metadata.create_all(bind=engine)
-        Session = sessionmaker(bind=engine)
-
-        session = Session()
-        user = Person()
-        user.name = "alice"
-        session.add(user)
-        session.commit()
-        session.close()
-
-        users = session.query(Person).all()
-
-        for user in users:
-            print(user.name)
-
-        session.close()
+    
