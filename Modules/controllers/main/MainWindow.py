@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow
 from ...views import Ui_MainWindow
-from ...models import Person
+from ...models import Person, Car
 from ...models.model import Session
 
 
@@ -14,6 +14,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def changeText(self):
 
         person = Person()
+        car = Car()
         session = Session()
         person.name = self.txtNombre.text()
         session.add(person)

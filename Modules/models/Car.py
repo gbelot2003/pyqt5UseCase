@@ -2,8 +2,8 @@ from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
 from .model import Base, engine
 
 
-class Person(Base):
-    __tablename__ = "person"
+class Car(Base):
+    __tablename__ = "car"
 
     id = Column('id', Integer, primary_key=True)
     name = Column('name', String)
