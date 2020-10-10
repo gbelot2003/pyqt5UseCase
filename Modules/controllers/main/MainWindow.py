@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow
 from ...views import Ui_MainWindow
-from ...models import Person, Car
-from ...models.model import Session
+from .Operations import create
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -12,12 +11,5 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.changeText)
 
     def changeText(self):
-
-        person = Person()
-        car = Car()
-        session = Session()
-        person.name = self.txtNombre.text()
-        session.add(person)
-        session.commit()
-        session.close()
+        create(self.txtNombre.text())
         self.txtNombre.setText("")
