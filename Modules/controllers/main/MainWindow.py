@@ -21,8 +21,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def loadTable(self):
         self.tableWidget.setRowCount(Count())
-        # self.tableWidget.insetRow(Count())
-        # self.tableWidget.setColumnCount(1)
         persons = GetAll()
 
         for i, person in enumerate(persons):

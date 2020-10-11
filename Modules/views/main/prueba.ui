@@ -66,12 +66,17 @@
      <number>1</number>
     </property>
     <property name="columnCount">
-     <number>1</number>
+     <number>2</number>
     </property>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>true</bool>
     </attribute>
     <row/>
+    <column>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </column>
     <column/>
    </widget>
   </widget>

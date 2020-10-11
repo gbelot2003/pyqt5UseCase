@@ -30,8 +30,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setGeometry(QtCore.QRect(10, 100, 201, 192))
         self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableWidget.setRowCount(1)
-        self.tableWidget.setColumnCount(1)
+        self.tableWidget.setColumnCount(2)
         self.tableWidget.setObjectName("tableWidget")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, item)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -50,6 +52,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "Ingresar"))
         self.btnCuentas.setText(_translate("MainWindow", "Abrir Cuentas"))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Name"))
 
 
 if __name__ == "__main__":
