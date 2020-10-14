@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem
 from ...views import CuentasUi
-from .Operaciones import getGrupos, getTipos, getCuentas
+from .Operaciones import getGrupos, getTipos, getCuentas, getCuentasByType
 
 class CuentasController(QMainWindow, CuentasUi):
     def __init__(self, parent=None):    
@@ -17,6 +17,7 @@ class CuentasController(QMainWindow, CuentasUi):
         self.btnCancelar.clicked.connect(self.CloseWindow)
         self.btnIngresar.clicked.connect(self.getValues)    
         self.cmbGrupo.currentTextChanged.connect(self.loadCuentasPadre)
+        self.cmbCuenta.setEnabled(False)
     
     def CloseWindow(self):
         self.close()
@@ -39,5 +40,13 @@ class CuentasController(QMainWindow, CuentasUi):
     def loadCuentasPadre(self):
         nums = self.cmbGrupo.currentData() - 1
         if nums == 0:
+            self.cmbCuenta.setEnabled(False)
+            self.cmbCuenta.clear()
             return None
-        print(nums)
+        result = getCuentasByType(nums)
+        self.cmbCuenta.setEnabled(True)
+        self.cmbCuenta.clear()
+        for row in result:
+            name = row.code + " " + row.descripcion
+            self.cmbCuenta.addItem(name, row.id)
+            print ("ID:", row.id, "descripcion: ",row.descripcion)

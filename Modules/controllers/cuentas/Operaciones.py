@@ -13,3 +13,7 @@ def getTipos():
 def getCuentas():
     cuentas = Cuentas()
     return cuentas.GetAll()
+
+def getCuentasByType(type):
+    cuentas = Cuentas()
+    return cuentas.getByType(type)
