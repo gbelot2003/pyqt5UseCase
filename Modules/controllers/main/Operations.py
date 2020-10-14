@@ -1,4 +1,4 @@
-from ...models import Person, Car
+from ...models import Person
 from ...models.model import Session
 from sqlalchemy import func, desc
 
@@ -15,9 +15,7 @@ def GetAll():
 
 def create(name):
     person = Person(name)
-    car = Car(name)
     session = Session()
     session.add(person)
-    session.add(car)
     session.commit()
     session.close()
