@@ -1,7 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
+from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, func
 from .model import Base, engine, Session
-from sqlalchemy import func
-
 
 class Person(Base):
     __tablename__ = "person"

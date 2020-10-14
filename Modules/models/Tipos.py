@@ -1,18 +1,17 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
-from .model import Base, engine
+from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, func
+from .model import Base, engine, Session
 
-
-class Tipos():
-    __table__ = "tipos"
+class Tipos(Base):
+    __tablename__ = "tipos"
     
     id = Column('id', Integer, primary_key=True)
     code = Column('code', Integer)
     name = Column('name', String)
-    
+
     def __init__(self, code: str = '', name: str = ''):
         self.code = code
         self.name = name
-
+        
     def __repr__(self):
         return f'Tipos(id={self.id}, name={self.name}, code={self.code})'
     
@@ -22,4 +21,9 @@ class Tipos():
         session.flush()
         return count
     
-    Base.metadata.create_all(engine)
+    def GetAll(self):
+        session = Session()
+        return session.query(Tipos).all()
+    
+   
+Base.metadata.create_all(engine)
