@@ -10,13 +10,25 @@ class CuentasController(QMainWindow, CuentasUi):
         self.setWindowTitle("Cuentas")
         self.loadCmTipos()
         self.loadCmGrupos()
+
+        self.btnCancelar.clicked.connect(self.CloseWindow)
+        self.btnIngresar.clicked.connect(self.getValues)
+    
+    def CloseWindow(self):
+        self.close()
+        
+    def getValues(self):
+        print(self.cmbGrupo.currentText())
+        print(self.cmbGrupo.currentData())
     
     def loadCmTipos(self):
         tipos = getTipos()
         for i, tipo in enumerate(tipos):
-            self.cmbTipo.addItem(tipo.name)
+            self.cmbTipo.addItem(tipo.name, tipo.id)
     
     def loadCmGrupos(self):
         grupos = getGrupos()
         for i, grupo in enumerate(grupos):
-            self.cmbGrupo.addItem(grupo.name)
+            self.cmbGrupo.addItem(grupo.name, grupo.id)
+    
+    
