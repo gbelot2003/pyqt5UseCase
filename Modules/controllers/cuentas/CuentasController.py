@@ -8,5 +8,15 @@ class CuentasController(QMainWindow, CuentasUi):
         self.setupUi(self)
         
         self.setWindowTitle("Cuentas")
-        getGrupos()
-        getTipos()
+        self.loadCmTipos()
+        self.loadCmGrupos()
+    
+    def loadCmTipos(self):
+        tipos = getTipos()
+        for i, tipo in enumerate(tipos):
+            self.cmbTipo.addItem(tipo.name)
+    
+    def loadCmGrupos(self):
+        grupos = getGrupos()
+        for i, grupo in enumerate(grupos):
+            self.cmbGrupo.addItem(grupo.name)
