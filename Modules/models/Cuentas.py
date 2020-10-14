@@ -1,8 +1,8 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
-from .model import Base, engine
+from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, func
+from .model import Base, engine, Session
 
-class Cuentas():
-    __table__ = "Cuentas"
+class Cuentas(Base):
+    __tablename__ = "cuentas"
     
     id = Column('id', Integer, primary_key=True)
     grupo_id = Column('grupo_id', Integer)
@@ -24,4 +24,15 @@ class Cuentas():
         session.flush()
         return count
     
-    Base.metadata.create_all(engine)
+    def GetAll(self):
+        session = Session()
+        return session.query(Cuentas).all()
+    
+    @staticmethod
+    def getByType():
+        #print("asdasd")
+        session = Session()
+        return session.query(Cuentas).all()
+        
+    
+Base.metadata.create_all(engine)

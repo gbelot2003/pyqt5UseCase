@@ -1,4 +1,4 @@
-from ...models import Grupos, Tipos
+from ...models import Grupos, Tipos, Cuentas
 from ...models.model import Session
 from sqlalchemy import func, desc
 
@@ -9,3 +9,7 @@ def getGrupos():
 def getTipos():
     tipos = Tipos()
     return tipos.GetAll()
+
+def getCuentas():
+    cuentas = Cuentas()
+    return cuentas.GetAll()
