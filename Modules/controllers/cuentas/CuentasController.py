@@ -70,7 +70,7 @@ class CuentasController(QMainWindow, CuentasUi):
             self.tableWidget.setItem(
                 i, 1, QTableWidgetItem(cuenta.descripcion))
             self.tableWidget.setItem(
-                i, 2, QTableWidgetItem(str(cuenta.tipo_id)))
+                i, 2, QTableWidgetItem(str(cuenta.grupo_id)))
 
     def clearFields(self):
         self.txtDescripcion.setText("")
@@ -85,6 +85,7 @@ class CuentasController(QMainWindow, CuentasUi):
         codigo = self.lblCodigo.text()
         descripcion = str(self.txtDescripcion.text())
         record(tipo_id, grupo_id, cuenta, parent_id, codigo, descripcion)
+        self.loadTextView()
         self.clearFields()
 
     def getCode(self, tipo, parent, cuenta):

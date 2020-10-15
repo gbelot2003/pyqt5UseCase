@@ -31,7 +31,7 @@ class Cuentas(Base):
 
     def GetCuentasFilter(self):
         session = Session()
-        return session.query(Cuentas).order_by(Cuentas.code.desc())
+        return session.query(Cuentas).order_by(Cuentas.code.asc())
 
     @staticmethod
     def getById(id):
