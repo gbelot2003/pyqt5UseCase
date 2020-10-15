@@ -13,9 +13,14 @@ def getTipos():
     return tipos.GetAll()
 
 
+def getCount():
+    cuentas = Cuentas()
+    return cuentas.Count()
+
+
 def getCuentas():
     cuentas = Cuentas()
-    return cuentas.GetAll()
+    return cuentas.GetCuentasFilter()
 
 
 def getCuentasById(id):

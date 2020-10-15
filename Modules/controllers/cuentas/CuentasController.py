@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem
-from PyQt5 import QtCore
+from PyQt5 import QtCore, QtWidgets
 from ...views import CuentasUi
-from .Operaciones import getGrupos, getTipos, getCuentas, getCuentasByGroup, record, getCuentasById, getCuentasByGroupAndType
+from .Operaciones import getGrupos, getTipos, getCuentas, getCuentasByGroup, record, getCuentasById, getCuentasByGroupAndType, getCount
 
 
 class CuentasController(QMainWindow, CuentasUi):
@@ -10,6 +10,7 @@ class CuentasController(QMainWindow, CuentasUi):
         self.setupUi(self)
         self.txtCuenta.installEventFilter(self)
         self.initialState()
+        self.loadTextView()
 
     def initialState(self):
         self.setWindowTitle("Cuentas")
@@ -57,7 +58,19 @@ class CuentasController(QMainWindow, CuentasUi):
         for row in result:
             name = row.code + " " + row.descripcion
             self.cmbCuenta.addItem(name, row.id)
-            print("ID:", row.id, "descripcion: ", row.descripcion)
+
+    def loadTextView(self):
+        self.tableWidget.horizontalHeader().setSectionResizeMode(
+            QtWidgets.QHeaderView.Stretch)
+        self.tableWidget.setRowCount(getCount())
+        cuentas = getCuentas()
+        for i, cuenta in enumerate(cuentas):
+            self.tableWidget.setItem(
+                i, 0, QTableWidgetItem(cuenta.code))
+            self.tableWidget.setItem(
+                i, 1, QTableWidgetItem(cuenta.descripcion))
+            self.tableWidget.setItem(
+                i, 2, QTableWidgetItem(str(cuenta.tipo_id)))
 
     def clearFields(self):
         self.txtDescripcion.setText("")

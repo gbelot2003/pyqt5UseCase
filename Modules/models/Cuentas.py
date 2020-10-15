@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, func
+from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, func, desc
 from .model import Base, engine, Session
 
 
@@ -23,13 +23,15 @@ class Cuentas(Base):
 
     def Count(self):
         session = Session()
-        count = session.query(func.count(Cuentas.id)).scalar()
-        session.flush()
-        return count
+        return session.query(func.count(Cuentas.id)).scalar()
 
     def GetAll(self):
         session = Session()
         return session.query(Cuentas).all()
+
+    def GetCuentasFilter(self):
+        session = Session()
+        return session.query(Cuentas).order_by(Cuentas.code.desc())
 
     @staticmethod
     def getById(id):
